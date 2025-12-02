@@ -1,0 +1,242 @@
+/* GLOBAL ---------------------------------------------- */
+html {
+    overflow: hidden;                    /* remove a scrollbar */
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: #000;
+    color: #00ff41;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 0 !important;   /* garante que não fica espaço branco */
+}
+
+/* PAGES LAYOUT ----------------------------------------------*/
+.container {
+    max-width: 1100px;
+    margin: 120px auto 50px;
+    padding: 20px;
+}
+
+/* BACKGROUND ---------------------------------------------- */
+.background-watermark {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/ica-logo.webp');         
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80vmax;                        
+    opacity: 0.2;                                  
+    pointer-events: none;                           /* não interfere com cliques */
+    z-index: 1;                                     /* fica atrás de tudo */
+    filter: brightness(1) hue-rotate(10deg);      /* deg 10 deixa mais verde-escuro */
+}
+
+/* TEXT GREEN GLOW ---------------------------------------------- */
+h1, h2, h3, p, a, button, input, textarea, td, th {
+    font-family: 'Staatliches', 'Square 721', 'Eurostile', 'Arial Narrow', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
+    letter-spacing: 1px;
+}
+
+/* RED WARNINGS ---------------------------------------------- */
+.warning {
+    color: #ff0033;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bold;
+    text-shadow: none;   /* remove qualquer glow herdado */
+}
+
+/* NAV ---------------------------------------------- */
+.nav {
+    background: rgba(0, 20, 0, 0.8);
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px dashed #004400;
+    width: 100%;
+}
+.nav a {
+    color: #00ff41;
+    margin: 0 20px;
+    text-decoration: none;  /* esconde o sublinhado no texto */
+    font-weight: bold;
+}
+.nav a:hover { color: #ff0033; text-shadow: 0 0 20px #ff0033; }
+
+/* NAV-LOGO ---------------------------------------------- */
+.nav-home-logo {
+    padding: 8px 40px 8px 10px;        /* para dar um espaço grande à direita do logo */
+}
+
+.home-logo {
+    height: 58px;
+    opacity: 0.93;
+    filter: drop-shadow(0 0 15px #00ff41);
+    transition: all 0.4s ease;
+}
+
+.home-logo:hover {
+    filter: drop-shadow(0 0 35px #00ff41);
+    transform: translateY(-3px) scale(1.1);
+}
+
+@media (max-width: 600px) {
+    .nav-links {
+        margin: 10px 0;
+        display: flex;
+        flex-direction: column;
+    }
+}
+/* TITLE "ICA" ---------------------------------------------- */
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 450px;
+    text-align: center;
+}
+.ica-title {
+    font-size: 80px;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #00ff41, #004400);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0.88;
+    text-shadow: 0 0 40px #00ff41, 0 0 80px #00ff41;
+}
+
+/* TERMINAL ---------------------------------------------- */
+.terminal {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px dashed #00ff41;
+    padding: 20px;
+    margin: 50px auto;
+    max-width: 800px;
+    text-align: left;
+}
+
+/* ARSENAL / CARDS ---------------------------------------------- */
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin: 30px 0;
+}
+.card {
+    background: rgba(0, 50, 0, 0.4);
+    border: 1px solid #00ff41;
+    padding: 20px;
+    width: 280px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+    transition: all 0.3s;
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px #00ff41;
+    border-color: #ff0033;
+}
+
+/* ARSENAL / BUTTONS ---------------------------------------------- */
+.btn {
+    background: transparent;
+    border: 2px solid #00ff41;
+    color: #00ff41;
+    padding: 10px 20px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.btn:hover {
+    background: #00ff41;
+    color: #000;
+    box-shadow: 0 0 30px #00ff41;
+}
+
+/* CONTRACTS / TABLE ---------------------------------------------- */
+.contract-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    background: rgba(0, 30, 0, 0.5);
+}
+.contract-table th, .contract-table td {
+    border: 1px solid #004400;
+    padding: 12px;
+    text-align: left;
+}
+.contract-table th {
+    background: rgba(0, 100, 0, 0.5);
+}
+
+@media (max-width: 600px) {
+    .contract-table, .contract-table th, .contract-table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+/* SECURE LINE / FORM ---------------------------------------------- */
+.secure-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 30px auto;
+}
+.secure-form textarea, .secure-form input {
+    background: rgba(0, 40, 0, 0.7);
+    border: 1px solid #00ff41;
+    color: #00ff41;
+    padding: 12px;
+    font-family: inherit;
+    resize: none;
+}
+.secure-form textarea::placeholder, .secure-form input::placeholder {
+    color: #006600;
+}
+
+/* FOOTER ---------------------------------------------- */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 20, 0, 0.9);
+    padding: 12px;
+    text-align: center;
+    border-top: 1px dashed #004400;
+    font-size: 12px;
+    z-index: 99;
+}
+.blink {
+    animation: blink 1s steps(1) infinite;
+    display: inline-block;
+    margin-left: 5px;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@media (max-width: 600px) {
+    .footer {
+        font-size: 8px;
+    }
+}
